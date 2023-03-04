@@ -1,0 +1,58 @@
+﻿<Page x:Class="DemoExamYP.View.ListProdPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:DemoExamYP.View"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ListProdPage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <WrapPanel Grid.Row="0">
+            <TextBox x:Name="SearchTB" Height="30" Width="200" Margin="10"  TextChanged="SearchTB_TextChanged" MouseDoubleClick="SearchTB_MouseDoubleClick" Padding="3"/>
+            <ComboBox x:Name="SortCB" Height="30" Width="200" SelectionChanged="SortCB_SelectionChanged"/>
+            <ComboBox x:Name="FilterCB" Height="30" Width="200" Margin="10" SelectionChanged="FilterCB_SelectionChanged"/>
+            <Button x:Name="AddProdBtn" Content="+" Height="30" Width="30" Click="AddProdBtn_Click"/>
+        </WrapPanel>
+        <ListView x:Name="ListProd" Grid.Row="1" MouseDoubleClick="ListProd_MouseDoubleClick">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Border BorderBrush="Black" BorderThickness="1" Padding="5" >
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="{Binding Image}" Width="50" Margin="3,0,8,0"/>
+                            <StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{Binding ProductType.Title}"/>
+                                <TextBlock Text=" | "/>
+                                <TextBlock Text="{Binding Title}"/>
+                            </StackPanel>
+                            <StackPanel>
+                                <TextBlock Text="{Binding ArticleNumber}"/>
+                                <StackPanel>
+                                    <TextBlock Text="Материалы:"/>
+                                    <ListView>
+                                        <ListView.ItemTemplate>
+                                            <DataTemplate>
+                                                <TextBlock Text="{Binding ProductMaterial.Material.Title}"/>
+                                            </DataTemplate>
+                                        </ListView.ItemTemplate>
+                                    </ListView>
+                                </StackPanel>
+                            </StackPanel>
+                        </StackPanel>
+                        </StackPanel>
+                    </Border>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <WrapPanel>
+            
+        </WrapPanel>
+    </Grid>
+</Page>
