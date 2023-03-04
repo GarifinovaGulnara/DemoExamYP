@@ -193,6 +193,7 @@
       <DependentUpon>LopushokDB.edmx</DependentUpon>
       <LastGenOutput>LopushokDB.cs</LastGenOutput>
     </Content>
+    <Resource Include="Img\Lopushok.png" />
     <Resource Include="products\picture.png" />
     <Resource Include="products\paper_0.jpeg" />
     <Resource Include="products\paper_1.jpeg" />
